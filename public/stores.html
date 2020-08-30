@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Shopping Stores</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">-->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <style type="text/css">
+      /* map needs width and height to appear */
+      #map{
+        width: 100%;
+        max-width: 100%;
+        height: 500px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-light bg-light">
+      <a class="navbar-brand" href="#">Colendi Shopping</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link active" href="stores.html">Ana Sayfa <span class="sr-only">(current)</span></a>
+          <a class="nav-item nav-link" href="cart.html">Sepet</a>
+          <a class="nav-item nav-link" href="shoppinghistory.html">Alışveriş Geçmişi</a>
+          <a class="nav-item nav-link" href="credits.html">Borçlar</a>
+          <a class="nav-item nav-link" onclick="Login.logout();return false;" href="#">Çıkış Yap</a>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      
+      <div class="row">
+        <div class="col-xs-12 col-sm-12">
+          <div id="map"></div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-xs-12 col-sm-4">
+          <div class="store-info" style="display: none">
+            <ul class="list-group">
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <h4 id="merchant-name"></h4>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center" id="merchant-address"></li>
+              <li class="list-group-item d-flex justify-content-between align-items-center" id="merchant-hours"></li>
+              <li class="list-group-item d-flex justify-content-between align-items-center" id="merchant-phone"></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-8">
+          <table class="table product-list" style="display: none">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">Ürün Adı</th>
+                <th scope="col">Birim Fiyat ($)</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody class="products">
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    
+    <script src="js/jquery-3.3.1.min.js" type="text/javascript"></script>
+    <script src="js/bootstrap.js" type="text/javascript"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="js/js.cookie.js" type="text/javascript"></script>
+    <script src="js/login.js" type="text/javascript"></script>
+    <script src="js/stores.js" type="text/javascript"></script>
+    <script>
+     function initMap() {
+        Store.init();
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCiJqcLEM0pcvb2RtUMg2Aw6reYq5Pl4aU&callback=initMap" async defer></script>
+    
+  </body>
+</html>
